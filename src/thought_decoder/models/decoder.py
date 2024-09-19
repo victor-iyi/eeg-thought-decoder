@@ -1,20 +1,21 @@
 """This module combines Transformer, GNN, Mixture of Experts and Agentic Model into one architecture."""
 
-from collections.abc import Mapping
+# from collections.abc import Mapping
 
 from jax import Array
 from flax import linen as nn
 
 from thought_decoder.models import AgenticModel, GNN, MixtureOfExperts, TransformerEncoder
+from thought_decoder.models.utils import AgenticParams, GNNParams, MixtureOfExpertsParams, TransformerParams
 
 
 class EEGThoughtDecoder(nn.Module):
     """EEG Thought Decoder Module."""
 
-    transformer_params: Mapping[str, int | float]
-    gnn_params: Mapping[str, int | Array]
-    moe_params: Mapping[str, int]
-    agentic_params: Mapping[str, int]
+    transformer_params: TransformerParams  # Mapping[str, int | float]
+    gnn_params: GNNParams  # Mapping[str, int | Array]
+    moe_params: MixtureOfExpertsParams  # Mapping[str, int]
+    agentic_params: AgenticParams  # Mapping[str, int]
 
     def setup(self) -> None:
         """Set up the module."""
@@ -22,7 +23,7 @@ class EEGThoughtDecoder(nn.Module):
         self.gnn = GNN(**self.gnn_params)
         self.moe = MixtureOfExperts(**self.moe_params)
         self.agent = AgenticModel(**self.agentic_params)
-        self.classifier = nn.Dense(features=self.agentic_params['action_dim'])
+        self.classifier = nn.Dense(features=self.agentic_params.action_dim)
 
     def __call__(self, x: Array, training: bool) -> Array:
         """Apply the module.
