@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eeg-thought-decoder"
-version = "0.1.0"
+version = "0.1.1"
 description = "Decoding Human Thought from EEG Signals"
 license = "MIT"
 
