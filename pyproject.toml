@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eeg-thought-decoder"
-version = "0.1.0"
+version = "0.1.1"
 description = "Decoding Human Thought from EEG Signals"
 license = "MIT"
 
@@ -35,6 +35,12 @@ python = "^3.11"
 
 # Render rich text, progress bars, syntax highlighting and more to the terminal
 rich = "^13.8.1"
+# Differentiate, compile, and transform NumPy code.
+jax = "^0.4.33"
+# A neural network library for JAX designed for flexibility.
+flax = "^0.9.0"
+# A gradient processing and optimization library in JAX.
+optax = "^0.2.3"
 
 
 [tool.poetry.group.dev.dependencies]
