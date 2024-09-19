@@ -62,10 +62,9 @@ $\mathbf{E}_{\text{pos}} = \mathbf{E} + \mathbf{P},$
 where $\mathbf{P} \in \mathbb{R}^{N \times T \times d_{\text{model}}}$ is the
 positional encoding matrix defined as:
 
-$$\mathbf{P}{(n,t,2k)} = \sin\left( \frac{t}{10000^{2k/d{\text{model}}}} \right),
+$\mathbf{P}{(n,t,2k)} = \sin\left( \frac{t}{10000^{2k/d{\text{model}}}} \right),$
 
-\quad
-\mathbf{P}{(n,t,2k+1)} = \cos\left( \frac{t}{10000^{2k/d{\text{model}}}} \right).$$
+$\mathbf{P}{(n,t,2k+1)} = \cos\left( \frac{t}{10000^{2k/d{\text{model}}}} \right).$
 
 #### Multi-Head Self-Attention
 
