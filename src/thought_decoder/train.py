@@ -1,4 +1,8 @@
-"""Training script. Handles the training loop for the `EEGThoughtDecoder` model."""
+"""Training script.
+
+Handles the training loop for the `EEGThoughtDecoder` model.
+
+"""
 
 import time
 from collections.abc import Mapping
@@ -11,14 +15,14 @@ from flax import linen as nn
 from flax.training import checkpoints, train_state
 
 from thought_decoder.logging import logger
-from thought_decoder.types import KeyArray, Array
+from thought_decoder.types import KeyArray, Array, InputShape
 from thought_decoder.data import EEGDataLoader
 from thought_decoder.models import EEGThoughtDecoder
 from thought_decoder.models.utils import AgenticParams, GNNParams, MixtureOfExpertsParams, TransformerParams
 
 
 def create_train_state(
-    rng: KeyArray, model: nn.Module, learning_rate: float, input_shape: tuple[int]
+    rng: KeyArray, model: nn.Module, learning_rate: float, input_shape: InputShape
 ) -> train_state.TrainState:
     """Create the initial training state."""
     params = model.init(rng, jnp.ones(input_shape), training=True)
