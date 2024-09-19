@@ -1,7 +1,6 @@
 """Data Loader module.
 
-This module handles the loading and pre-processing of EEG data for training and
-evaluation.
+This module handles the loading and pre-processing of EEG data for training and evaluation.
 
 """
 
