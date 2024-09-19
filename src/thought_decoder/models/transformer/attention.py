@@ -1,5 +1,6 @@
 """Attention mechanism for the Transformer model."""
 
+# pylint: disable=attribute-defined-outside-init
 import jax.numpy as jnp
 from jax import Array
 from flax import linen as nn
