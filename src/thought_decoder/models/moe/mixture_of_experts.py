@@ -4,6 +4,7 @@ This module implements the Mixture of Experts model for specialization.
 
 """
 
+# pylint: disable=attribute-defined-outside-init
 import jax.numpy as jnp
 from jax import Array
 from flax import linen as nn

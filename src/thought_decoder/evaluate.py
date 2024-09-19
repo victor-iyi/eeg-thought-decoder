@@ -4,6 +4,9 @@ Handles the evaluation loop for the `EEGThoughtDecoder` model.
 
 """
 
+# pylint: disable=not-callable
+# mypy: disable-error-code="assignment,no-untyped-call"
+
 import jax.numpy as jnp
 from flax.training import checkpoints, train_state
 

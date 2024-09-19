@@ -1,5 +1,6 @@
 """Transofrmers encoder layer & model."""
 
+# pylint: disable=attribute-defined-outside-init
 from jax import Array
 from flax import linen as nn
 
@@ -45,7 +46,7 @@ class TransformerEncoderLayer(nn.Module):
         # Feed Forward Network.
         ffn_output = self.ffn(out1)
         ffn_output = self.dropout(ffn_output, deterministic=not training)
-        out2 = self.layernorm2(out1 + ffn_output)
+        out2: Array = self.layernorm2(out1 + ffn_output)
 
         # Return the output.
         return out2

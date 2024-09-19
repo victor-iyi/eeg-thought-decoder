@@ -16,7 +16,7 @@ class TransformerParams(TypedDict, total=False):
     dropout_rate: float
 
 
-class GNNParams(TypedDict, total=False):
+class GNNParams(TypedDict):
     """Hyperparameters for the GNN model."""
 
     num_layers: int
@@ -24,14 +24,14 @@ class GNNParams(TypedDict, total=False):
     adjacency_matrix: Array
 
 
-class MixtureOfExpertsParams(TypedDict, total=False):
+class MixtureOfExpertsParams(TypedDict):
     """Hyperparameters for the Mixture of Experts model."""
 
     num_experts: int
     expert_output_dim: int
 
 
-class AgenticParams(TypedDict, total=False):
+class AgenticParams(TypedDict):
     """Hyperparameters for the Agentic model."""
 
     action_dim: int

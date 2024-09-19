@@ -4,6 +4,7 @@ Handles the training loop for the `EEGThoughtDecoder` model.
 
 """
 
+# mypy: disable-error-code="no-untyped-call"
 import time
 from collections.abc import Mapping
 from typing import Any
@@ -27,7 +28,8 @@ def create_train_state(
     """Create the initial training state."""
     params = model.init(rng, jnp.ones(input_shape), training=True)
     optimizer = optax.adam(learning_rate)
-    return train_state.TrainState.create(apply_fn=model.apply, params=params, tx=optimizer)
+    state: train_state.TrainState = train_state.TrainState.create(apply_fn=model.apply, params=params, tx=optimizer)
+    return state
 
 
 @jax.jit
@@ -43,7 +45,7 @@ def train_step(state: train_state.TrainState, batch: tuple[Array, Array]) -> tup
 
     """
 
-    def loss_fn(params: Mapping[str, Any]) -> tuple[float, float]:
+    def loss_fn(params: Mapping[str, Any]) -> tuple[Array, float]:
         logits = state.apply_fn({'params': params}, batch[0], training=True)
         loss = optax.softmax_cross_entropy_with_integer_labels(logits=logits, labels=batch[1]).mean()
         return loss, logits

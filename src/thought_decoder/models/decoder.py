@@ -1,5 +1,6 @@
 """This module combines Transformer, GNN, Mixture of Experts and Agentic Model into one architecture."""
 
+# pylint: disable=attribute-defined-outside-init
 # from collections.abc import Mapping
 
 from jax import Array
@@ -23,7 +24,7 @@ class EEGThoughtDecoder(nn.Module):
         self.gnn = GNN(**self.gnn_params)
         self.moe = MixtureOfExperts(**self.moe_params)
         self.agent = AgenticModel(**self.agentic_params)
-        self.classifier = nn.Dense(features=self.agentic_params.action_dim)
+        self.classifier = nn.Dense(features=self.agentic_params['action_dim'])
 
     def __call__(self, x: Array, training: bool) -> Array:
         """Apply the module.
