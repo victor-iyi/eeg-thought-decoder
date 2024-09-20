@@ -13,6 +13,7 @@ from flax import linen as nn
 class Expert(nn.Module):
     """Expert Module."""
 
+    # The output dimension.
     output_dim: int
 
     def __call__(self, x: Array) -> Array:
@@ -33,7 +34,10 @@ class Expert(nn.Module):
 class MixtureOfExperts(nn.Module):
     """Mixture of Experts Module."""
 
+    # The number of experts.
     num_experts: int
+
+    # The output dimension of the expert.
     expert_output_dim: int
 
     def setup(self) -> None:

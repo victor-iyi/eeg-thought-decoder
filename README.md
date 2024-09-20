@@ -70,9 +70,9 @@ $\mathbf{P}{(n,t,2k+1)} = \cos\left( \frac{t}{10000^{2k/d{\text{model}}}} \right
 
 For each head $h$ and layer $l$:
 
-- **Query**: $\mathbf{Q}h^{(l)} = \mathbf{E}{\text{pos}}^{(l)} \mathbf{W}_h^{Q(l)}$
-- **Key**: $\mathbf{K}h^{(l)} = \mathbf{E}{\text{pos}}^{(l)} \mathbf{W}_h^{K(l)}$
-- **Value**: $\mathbf{V}h^{(l)} = \mathbf{E}{\text{pos}}^{(l)} \mathbf{W}_h^{V(l)}$
+- **Query**: $\mathbf{Q}_{h^{(l)}} = \mathbf{E}_{\text{pos}}^{(l)} \mathbf{W}_h^{Q(l)}$
+- **Key**: $\mathbf{K}_{h^{(l)}} = \mathbf{E}_{\text{pos}}^{(l)} \mathbf{W}_h^{K(l)}$
+- **Value**: $\mathbf{V}_{h^{(l)}} = \mathbf{E}_{\text{pos}}^{(l)} \mathbf{W}_h^{V(l)}$
 
 Compute attention weights:
 
@@ -107,7 +107,7 @@ $\mathbf{F}^{(l)} = \text{ReLU}\left( \mathbf{Z}^{(l)} \mathbf{W}_1^{(l)} + \mat
 Each sub-layer includes residual connections and layer normalization:
 
 <!-- markdownlint-disable-next-line line-length -->
-$\mathbf{E}{\text{pos}}^{(l+1)} = \text{LayerNorm}\left( \mathbf{E}{\text{pos}}^{(l)} + \mathbf{F}^{(l)} \right).$
+$\mathbf{E}_{{\text{pos}}^{(l+1)}} = \text{LayerNorm}\left( \mathbf{E}_{{\text{pos}}}^{(l)} + \mathbf{F}^{(l)} \right).$
 
 ### 2. Graph Neural Network for Spatial Relationships
 

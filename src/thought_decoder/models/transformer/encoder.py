@@ -11,9 +11,16 @@ from thought_decoder.models.transformer.pos_encoding import PositionalEncoding
 class TransformerEncoderLayer(nn.Module):
     """Transformer Encoder Layer."""
 
+    # The model dimension.
     model_dim: int
+
+    # The number of heads in the multi-head attention.
     num_heads: int
+
+    # The feed forward network dimension.
     diff: int
+
+    # The dropout rate.
     dropout_rate: float = 0.1
 
     def setup(self) -> None:
@@ -55,12 +62,25 @@ class TransformerEncoderLayer(nn.Module):
 class TransformerEncoder(nn.Module):
     """Transformer Encoder with multiple Transformer Encoder Layers."""
 
+    # The number of layers in the encoder.
     num_layers: int
+
+    # The model dimension.
     model_dim: int
+
+    # The number of heads in the multi-head attention.
     num_heads: int
+
+    # The feed forward network dimension.
     diff: int
+
+    # The input vocabulary size.
     input_vocab_size: int
+
+    # The maximum position encoding.
     maximum_position_encoding: int
+
+    # The dropout rate.
     dropout_rate: float = 0.1
 
     def setup(self) -> None:

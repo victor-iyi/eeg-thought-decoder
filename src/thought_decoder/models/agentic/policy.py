@@ -11,6 +11,7 @@ from flax import linen as nn
 class PolicyNetwork(nn.Module):
     """Policy Network Module."""
 
+    # The number of actions.
     action_dim: int
 
     def __call__(self, x: Array) -> Array:
@@ -32,6 +33,7 @@ class PolicyNetwork(nn.Module):
 class AgenticModel(nn.Module):
     """Agentic Model Module."""
 
+    # The number of actions.
     action_dim: int
 
     def setup(self) -> None:

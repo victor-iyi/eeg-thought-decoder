@@ -9,7 +9,10 @@ from flax import linen as nn
 class MultiHeadSelfAttention(nn.Module):
     """Multi-Head Self Attention Mechanism."""
 
+    # The model dimension.
     model_dim: int
+
+    # The number of heads.
     num_heads: int
 
     def setup(self) -> None:

@@ -9,7 +9,10 @@ from flax import linen as nn
 class GraphConvolutionLayer(nn.Module):
     """Graph Convolution Layer."""
 
+    # The output dimension.
     output_dim: int
+
+    # The adjacency matrix.
     adjacency_matrix: Array
 
     def __call__(self, x: Array) -> Array:
@@ -66,8 +69,13 @@ class GraphConvolutionLayer(nn.Module):
 class GNN(nn.Module):
     """Graph Neural Network (GNN) model."""
 
+    # The number of layers.
     num_layers: int
+
+    # The hidden dimension.
     hidden_dim: int
+
+    # The adjacency matrix.
     adjacency_matrix: Array
 
     def setup(self) -> None:

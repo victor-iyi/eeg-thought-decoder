@@ -8,6 +8,7 @@ from flax import linen as nn
 class PositionalEncoding(nn.Module):
     """Positional Encoding Layer."""
 
+    # The model dimension.
     model_dim: int
 
     def __call__(self, x: Array) -> Array:

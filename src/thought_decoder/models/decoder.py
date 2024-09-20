@@ -13,9 +13,16 @@ from thought_decoder.models.utils import AgenticParams, GNNParams, MixtureOfExpe
 class EEGThoughtDecoder(nn.Module):
     """EEG Thought Decoder Module."""
 
+    # The parameters for the Transformer Encoder.
     transformer_params: TransformerParams  # Mapping[str, int | float]
+
+    # The parameters for the GNN.
     gnn_params: GNNParams  # Mapping[str, int | Array]
+
+    # The parameters for the Mixture of Experts.
     moe_params: MixtureOfExpertsParams  # Mapping[str, int]
+
+    # The parameters for the Agentic Model.
     agentic_params: AgenticParams  # Mapping[str, int]
 
     def setup(self) -> None:

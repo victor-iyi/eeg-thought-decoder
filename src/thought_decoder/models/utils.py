@@ -1,10 +1,10 @@
 """Utility functions for the project."""
 
-from typing import TypedDict
+from typing import NotRequired, TypedDict
 from jax import Array
 
 
-class TransformerParams(TypedDict, total=False):
+class TransformerParams(TypedDict):
     """Hyperparameters for the Transformer model."""
 
     num_layers: int
@@ -13,7 +13,7 @@ class TransformerParams(TypedDict, total=False):
     diff: int
     input_vocab_size: int
     maximum_position_encoding: int
-    dropout_rate: float
+    dropout_rate: NotRequired[float]
 
 
 class GNNParams(TypedDict):
